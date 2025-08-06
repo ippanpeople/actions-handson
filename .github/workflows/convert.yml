@@ -12,12 +12,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Haru TP font
-        run: |
-          sudo mkdir -p /usr/share/fonts/truetype/haru
-          sudo cp marp/fonts/haru-tp.ttf /usr/share/fonts/truetype/haru/
-          sudo fc-cache -f -v
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
