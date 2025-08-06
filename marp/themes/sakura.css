@@ -96,22 +96,12 @@ img[alt~='lower-right'] {
   position: absolute;
 }
 
-img[alt~="left"], img[alt~="right"] {
-  width: 48%;           
-  display: inline-block; 
-  vertical-align: top;   
-  margin: 0;             
+.columns {
+  display: flex;
+  justify-content: space-between; 
+  align-items: flex-start;        
+  gap: 2%;                        
 }
-img[alt~="left"] {
-  float: left;
-  margin-right: 4%;
-}
-img[alt~="right"] {
-  float: right;
-}
-
-section::after {
-  content: "";
-  display: block;
-  clear: both;
+.columns img {
+  width: 49%;                     
 }

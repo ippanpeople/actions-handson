@@ -112,8 +112,10 @@ style: |
     - Settings > Actions > General に移動し Actions permissions を「Allow all actions and reusable workflows」に設定します。
     - 既存の .github/workflows-disable を正しくリネームして .github/workflows にします。
 
-![h:250 left](../images/set-actions-permissions.png)
-![h:250 right](../images/modify-to-enable.png)
+<div class="columns">
+  ![h:300](../images/set-actions-permissions.png)
+  ![h:300](../images/modify-to-enable.png)
+</div>
 
 ---
 
