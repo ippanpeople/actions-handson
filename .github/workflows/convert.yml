@@ -26,7 +26,7 @@ jobs:
 
       - name: Convert Marp to PDF
         run: |
-          marp --allow-local-files --verbose --theme-set marp/themes/sakura.css marp/slides/slide.md -o marp/slides/slide.pdf
+          marp --pdf --allow-local-files --verbose --theme-set marp/themes/sakura.css marp/slides/slide.md -o marp/slides/slide.pdf
           ls -l marp/slides
 
       - name: Upload artifact
