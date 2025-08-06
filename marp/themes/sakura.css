@@ -3,7 +3,10 @@
 @import-theme 'gaia';
 
 section {
-  font-family: "Haru TP";
+  font-family:
+    "IPAPMincho","Noto Sans JP","Source Han Serif JP",
+    "IPAPGothic","Noto Sans","Liberation Sans",
+    sans-serif;
   font-size: 1.8rem;
 
   background-color: #ffffff;
