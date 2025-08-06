@@ -28,7 +28,7 @@ jobs:
         run: |
           marp --version
           # marp --pdf --allow-local-files --verbose --theme-set marp/themes/sakura.css marp/slides/slide.md -o marp/slides/slide.pdf
-          marp marp/slides/slide.md --theme-set marp/themes/sakura.css marp/slides/slide.md -o marp/slides/slide.pdf --pdf
+          marp marp/slides/slide.md --theme marp/themes/sakura.css -o marp/slides/slide.pdf --pdf
           ls -l marp/slides
 
       - name: Upload artifact
