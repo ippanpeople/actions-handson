@@ -97,8 +97,10 @@ img[alt~='lower-right'] {
 }
 
 img[alt~="left"], img[alt~="right"] {
-  display: inline-block;
-  width: 48%;
+  width: 48%;           
+  display: inline-block; 
+  vertical-align: top;   
+  margin: 0;             
 }
 img[alt~="left"] {
   float: left;
@@ -107,6 +109,7 @@ img[alt~="left"] {
 img[alt~="right"] {
   float: right;
 }
+
 section::after {
   content: "";
   display: block;
