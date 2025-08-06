@@ -14,3 +14,5 @@
 4. [sacloud_apprun_actions を使った AppRun デプロイ](03_sacloud_apprun_actions/README.md)
 
 
+## スライド
+- [GitHub Actions ハンズオン スライド](marp/slides/slide.pdf)
