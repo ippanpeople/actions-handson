@@ -19,9 +19,15 @@ jobs:
       - name: Install Marp CLI
         run: npm install -g @marp-team/marp-cli
 
+      - name: Check input files
+        run: |
+          ls -l marp/slides
+          ls -l marp/themes
+
       - name: Convert Marp to PDF
         run: |
-          marp --theme-set marp/themes/sakura.css marp/slides/slide.md -o marp/slides/slide.pdf
+          marp --allow-local-files --verbose --theme-set marp/themes/sakura.css marp/slides/slide.md -o marp/slides/slide.pdf
+          ls -l marp/slides
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
