@@ -28,7 +28,7 @@ jobs:
         run: |
           marp --version
           # marp --pdf --allow-local-files --verbose --theme-set marp/themes/sakura.css marp/slides/slide.md -o marp/slides/slide.pdf
-          marp marp/slides/slide.md -o marp/slides/slide.pdf --pdf
+          marp marp/slides/slide.md --theme-set marp/themes/sakura.css marp/slides/slide.md -o marp/slides/slide.pdf --pdf
           ls -l marp/slides
 
       - name: Upload artifact
@@ -36,3 +36,14 @@ jobs:
         with:
           name: marp-pdf
           path: marp/slides/slide.pdf
+
+      - name: Set up Git user
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push PDF
+        run: |
+          git add marp/slides/slide.pdf
+          git commit -m "chore: update slide.pdf [auto]" || echo "No changes to commit"
+          git push origin HEAD:${{ github.ref }}
