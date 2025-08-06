@@ -14,7 +14,7 @@ GitHub Actions は、GitHub プロジェクトのための CI/CD ワークフロ
 
 ![GitHub Actions 基本元件](basics_components.png)
 
-## GitHub Actions の主な用語
+## GitHub Actions の用語集
 | 用語                | 説明                                                                                   |
 |---------------------|--------------------------------------------------------------------------------------|
 | **Actions**         | 自動化ツールのこと。 |

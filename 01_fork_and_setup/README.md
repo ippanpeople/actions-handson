@@ -50,8 +50,8 @@ GitHub Actions では、外部サービスへの認証情報や個人情報な�
 ![Variables 設定後の確認画面](varify-variables.png)
 
 ## GitHub Actions ワークフローの実行方法
-1. **ワークフローの実行**: リポジトリの Actions タブに移動し、対象のワークフローを選択します。
-2. **ワークフローの実行**: 「Run workflow」ボタンをクリックし、
+1. **ワークフローの選択**: リポジトリの Actions タブに移動し、対象のワークフローを選択します。
+2. **ワークフローの実行**: 「Run workflow」ボタンをクリックします。
 ![Run workflow](run-workflow.png)
 3. **実行の確認**: ワークフローが正常に実行されると、Slack チャンネルにメッセージが送信されます。これにより、GitHub Actions のセットアップが正しく行われたことを確認できます。
 

@@ -8,7 +8,7 @@
 > **ゴール**: GitHub Actions で Go アプリケーションを Sakura の AppRun にデプロイし、同時に Object Storage を作成してデータ永続化を実現する。これにより、元々手動で行っていたデプロイ作業を自動化し、効率的な開発フローを体験する
 
 ## sacloud_apprun_actions とは？
-`sacloud_apprun_actions` は、自動的に Go アプリケーションをさくらの AppRun サービスにデプロイするための GitHub Actions ワークフローです。**アプリケーションのビルド、コンテナレジストリへのプッシュ、AppRun へのデプロイを自動化します**。また、**データ永続化のためのオブジェクトストレージバケットの作成**機能も含まれており、アプリケーションの再起動や再デプロイ後もデータの保存・取得が可能です。
+`sacloud_apprun_actions` は、Go アプリケーションをさくらの AppRun サービスにデプロイするときのワークフローを簡潔にするための Composite Actionsです。**アプリケーションのビルド、コンテナレジストリへのプッシュ、AppRun へのデプロイを自動化します**。また、**データ永続化のためのオブジェクトストレージバケットの作成**機能も含まれており、アプリケーションの再起動や再デプロイ後もデータの永続化ができます。
 
 >[!NOTE]
 > 今回利用する actions: [sacloud-apprun-action](https://github.com/ippanpeople/sacloud-apprun-action/blob/master/action.yaml)

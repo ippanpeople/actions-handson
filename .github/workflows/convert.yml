@@ -1,0 +1,26 @@
+# .github/workflows/convert.yml
+name: Build Marp PDF
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Convert Marp to PDF
+        uses: marp-team/marp-cli-action@v3
+        with:
+          input: marp/slides/slide.md
+          output: marp/slides/slide.pdf
+          allow-local-files: true
+          theme: marp/themes/sakura.css
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: marp-pdf
+          path: marp/slides/slide.pdf

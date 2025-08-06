@@ -1,0 +1,97 @@
+/* @theme sakura */
+
+@import-theme 'gaia';
+
+section {
+  font-family: "Haru TP";
+  font-size: 1.8rem;
+
+  background-color: #ffffff;
+  background-image: url(../assets/1-1-basic-rgb-whiteback.svg);
+  background-repeat:  no-repeat;
+  background-size: 300px 100px;
+  background-position: right top;
+}
+
+img[alt~="center"] {
+  display: block;
+  margin: 0 auto;
+}
+
+section.lead h1 {
+    font-size: 62px;
+}
+
+section h1 {
+    font-size: 52px;
+}
+
+section h2 {
+    font-size: 46px;
+}
+
+section h3 {
+    font-size: 40px;
+}
+
+section h3 {
+    font-size: 34px;
+}
+
+section.small-font ul>li {
+  font-size: 30px;
+}
+
+section.small-font ul>li>ul>li {
+  font-size: 24px;
+}
+
+section.lead {
+  background-image: url(../assets/1-5-basic-rgb-white.svg);
+  background-size: 320px 200px;
+  background-position: center bottom;
+}
+
+section.green {
+  color: #ffffff;
+  background-color: #00c8c8;
+}
+
+section.pink {
+  color: #ffffff;
+  background-color: #ff5577;
+}
+
+section.yellow {
+  color: #ffffff;
+  background-color: #ffcc00;
+}
+
+section.blue {
+  color: #ffffff;
+  background-color: #7799dd;
+}
+    
+section.nologo {
+    background-image: none;
+}
+
+section.confidential::before {
+  font-size: 12px;
+  content: "SAKURA internet Confidential";
+  display: block;
+  background-image: none;
+  color: #ff5577;
+  border-style: solid;
+  border-color: #ff5577;
+  padding: 2px 5px;
+  border-width: 2px 2px 2px 2px;
+  position : absolute;
+  bottom: 30px; 
+}
+
+img[alt~='lower-right'] {
+  bottom:60px;
+  right:70px;
+  position: absolute;
+}
