@@ -7,11 +7,17 @@ on:
 jobs:
   build-pdf:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Install Japanese/CJK fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -19,31 +25,30 @@ jobs:
       - name: Install Marp CLI
         run: npm install -g @marp-team/marp-cli
 
-      - name: Check input files
+      - name: Build PDF from Marp slides
+        working-directory: marp/slides
         run: |
-          ls -l marp/slides
-          ls -l marp/themes
+          echo "=== Listing slides directory ==="
+          ls -R .
+          echo "=== Generating slide.pdf ==="
+          marp slide.md \
+            --theme ../themes \
+            --allow-local-files \
+            --pdf \
+            -o slide.pdf
+          echo "=== Resulting PDF ==="
+          ls -l slide.pdf
 
-      - name: Convert Marp to PDF
-        run: |
-          marp --version
-          # marp --pdf --allow-local-files --verbose --theme-set marp/themes/sakura.css marp/slides/slide.md -o marp/slides/slide.pdf
-          marp marp/slides/slide.md --theme marp/themes/sakura.css -o marp/slides/slide.pdf --pdf
-          ls -l marp/slides
-
-      - name: Upload artifact
+      - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
           name: marp-pdf
           path: marp/slides/slide.pdf
 
-      - name: Set up Git user
+      - name: Commit and push generated PDF
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Commit and push PDF
-        run: |
           git add marp/slides/slide.pdf
           git commit -m "chore: update slide.pdf [auto]" || echo "No changes to commit"
           git push origin HEAD:${{ github.ref }}
