@@ -96,12 +96,14 @@ img[alt~='lower-right'] {
   position: absolute;
 }
 
-.columns {
+section .side-by-side {
   display: flex;
   justify-content: space-between; 
   align-items: flex-start;        
-  gap: 2%;                        
+  gap: 1rem;                      
+  margin-top: 1rem;               
 }
-.columns img {
-  width: 49%;                     
+section .side-by-side img {
+  height: 300px;    
+  object-fit: contain;
 }
