@@ -12,6 +12,15 @@ style: |
   .small {
     font-size: 70%;
   }
+
+  h2 {
+    border-left: 6px solid #e74c3c;
+    padding-left: 0.7em;
+    background: none;
+    color: inherit;
+    margin-top: 1.5em;
+    margin-bottom: 0.7em;
+  }
 ---
 <!-- _class: pink lead -->
 
@@ -29,9 +38,7 @@ style: |
 - Composite Actions の運用
 - sacloud_apprun_actions を使った AppRun デプロイ
 
-
 ---
-
 
 <!-- _class: pink lead -->
 
@@ -42,12 +49,13 @@ style: |
 ## GitHub Actions とは？
 
 - バージョン管理システムであるGitHub上に提供する、ワークフローを自動化するCI/CDツール
-- できごと
+- **できごと**
   - イベント駆動型で、変更されたコードに応じて自動的にビルド・テスト・デプロイを実行
-- 基盤
+- **基盤**
   - GitHub上やセルフホストされたランナーでワークフローの定義に基づき動作
-- ユーザビリティ
+- **ユーザビリティ**
   - GitHubのUI上で簡単に設定・管理が可能、CLIやAPIからも操作可能
+
 ---
 
 ## GitHub Actions の基本コンポーネント
@@ -60,11 +68,17 @@ style: |
   - ワークフローを開始するイベント（例: `push`、`pull_request`、手動実行など）
 - **Jobs**
   - 同じランナー環境（仮想マシンなど）で実行されるステップの集合。並列または順次実行が可能
+
+---
+
+## GitHub Actions の基本コンポーネント
+
 - **Steps**
   - ジョブ内の個々のタスク。コマンド実行やアクションの呼び出しができる
 ![h:450 center](../images/basics_components.png)
 - **actions**
   - ワークフロー内で特定のタスクを実行する再利用可能なコード単位（プラグインのようなもの）
+
 ---
 
 <!-- _class: pink lead -->
@@ -88,7 +102,7 @@ style: |
     - GitHub Actions は、リポジトリの設定でワークフローのパーミッションが適切に設定されていない場合に無効化されます。
     - GitHub Actions は、.github/workflow ディレクトリ内にワークフロー定義ファイルが存在しない場合、またはワークフローのパーミッションが適切に設定されていない場合に無効化されます。
 
-![h:450 center](./images/why-workflow-disable.png)
+![h:450 center](../images/why-workflow-disable.png)
 
 ---
 
@@ -98,8 +112,8 @@ style: |
     - Settings > Actions > General に移動し Actions permissions を「Allow all actions and reusable workflows」に設定します。
     - 既存の .github/workflows-disable を正しくリネームして .github/workflows にします。
 
-![h:450 left](../images/set-actions-permissions.png)
-![h:450 right](../images/modify-to-enable.png)
+![h:250 left](../images/set-actions-permissions.png)
+![h:250 right](../images/modify-to-enable.png)
 
 ---
 
@@ -111,6 +125,7 @@ style: |
 ![h:480 center](../images/workflow-enabled.png)
 
 ---
+
 ## GitHub Actions のシークレットと変数の設定方法
 
 GitHub Actions では、外部サービスへの認証情報や個人情報などを安全に管理するために「シークレット（Secrets）」と「変数（Variables）」を利用します。シークレットは主にパスワードや API キーなどの機密情報を、変数はワークフロー内で再利用したい値（例：自分の名前やリポジトリリンクなど）を格納します。これらはリポジトリの Settings > Secrets and variables から設定できます。
@@ -123,10 +138,11 @@ GitHub Actions では、外部サービスへの認証情報や個人情報な�
    ````
    SLACK_WEBHOOK_URL
    ````
-![h:450 left](../images/new-secret.png)
-![h:450 right](../images/set-secret.png)
+![h:250 left](../images/new-secret.png)
+![h:250 right](../images/set-secret.png)
 
 ---
+
 ## GitHub Actions のシークレットと変数の設定方法
 
 2. **変数の設定**: ワークフロー内で使う名前やリポジトリリンクなどを登録します。
@@ -138,16 +154,18 @@ GitHub Actions では、外部サービスへの認証情報や個人情報な�
    ````
    REPOSITORY
    ````
-![h:450 left](../images/new-variable.png)
-![h:450 right](../images/set-variable.png)
+![h:250 left](../images/new-variable.png)
+![h:250 right](../images/set-variable.png)
 
 ---
+
 ## GitHub Actions のシークレットと変数の設定方法
 3. **設定後の確認**: 設定が正しく反映されているか確認します。
-![h:450 left](../images/varify-secret.png)
-![h:450 right](../images/varify-variables.png)
+![h:250 left](../images/varify-secret.png)
+![h:250 right](../images/varify-variables.png)
 
 ---
+
 ## GitHub Actions ワークフローの実行方法
 
 1. **ワークフローの選択**: リポジトリの Actions タブに移動し、対象のワークフローを選択します。
@@ -155,7 +173,9 @@ GitHub Actions では、外部サービスへの認証情報や個人情報な�
 3. **実行の確認**: ワークフローが正常に実行されると、Slack チャンネルにメッセージが送信されます。これにより、GitHub Actions のセットアップが正しく行われたことを確認できます。
 
 ![h:450 center](../images/run-workflow.png)
+
 ---
+
 <!-- _class: pink lead -->
 # Composite Actions の運用
 
@@ -167,7 +187,7 @@ Composite Actions は、複数のシェルステップを組み合わせて作�
 ---
 
 ## 前のステップとの比較
-![前のステップと比較](compare.png)
+![h:450 center](../images/compare.png)
 
 ---
 
@@ -175,12 +195,18 @@ Composite Actions は、複数のシェルステップを組み合わせて作�
 # sacloud_apprun_actions を使った AppRun デプロイ
 
 ---
+
 ## sacloud_apprun_actions とは？
 `sacloud_apprun_actions` は、Go アプリケーションをさくらの AppRun サービスにデプロイするときのワークフローを簡潔にするための Composite Actionsです。**アプリケーションのビルド、コンテナレジストリへのプッシュ、AppRun へのデプロイを自動化します**。また、**データ永続化のためのオブジェクトストレージバケットの作成**機能も含まれており、アプリケーションの再起動や再デプロイ後もデータの永続化ができます。
 
 ---
+
 ## sacloud_apprun_actions の使い方
 1. **ワークフロー例**: `sacloud_apprun_actions` ワークフローが含まれるリポジトリをフォークし、アプリケーションに合わせてワークフローファイルをカスタマイズします。
+
+---
+
+## sacloud_apprun_actions の使い方
 ````yaml
       - name: Goアプリをデプロイ
         id: deploy
@@ -201,7 +227,9 @@ Composite Actions は、複数のシェルステップを組み合わせて作�
           sqlite-db-path: ./data/app.db
           litestream-replicate-interval: 10s
 ````
+
 ---
+
 ## sacloud_apprun_actions の使い方
 2. **Secrets と Variables の設定**: リポジトリの設定で必要な GitHub Actions シークレットと変数を作成します。
    - コンテナレジストリの URL:
@@ -216,6 +244,11 @@ REGISTRY_USER
 ````
 REGISTRY_PASSWORD
 ````
+
+---
+
+## sacloud_apprun_actions の使い方
+
    - さくらの API キー:
 ````
 SAKURA_API_KEY
@@ -228,6 +261,10 @@ SAKURA_API_SECRET
 ````
 STORAGE_BUCKET_NAME
 ````
+---
+
+## sacloud_apprun_actions の使い方
+
    - オブジェクトストレージのアクセスキー:
 ````
 STORAGE_ACCESS_KEY
@@ -238,11 +275,15 @@ STORAGE_SECRET_KEY
 ````
 
 ---
+
 ## sacloud_apprun_actions の使い方
+
 3. **ワークフローの実行**: ワークフローを手動でトリガーするか、特定のイベント（例: push, pull request）で自動実行します。
 
 ---
+
 ## データ永続化の実践方法
+
 AppRun はステートレスなため、デプロイのたびにアプリケーションが再起動されます。sacloud_apprun_actions はデータ永続化の課題を解決するため、SQLite と Litestream を利用し、アプリ再起動後もデータが保持されるようにします。
 
 ---
@@ -252,4 +293,4 @@ AppRun はステートレスなため、デプロイのたびにアプリケー�
 ---
 <!-- _class: pink lead -->
 
-# 以上でAppRunの説明は終了です
+# 以上で GitHub Actions 説明は終了です
