@@ -14,7 +14,7 @@ style: |
   }
 
   h2 {
-    border-left: 6px solid #e74c3c;
+    border-left: 6px solid #ff5577;
     padding-left: 0.7em;
     background: none;
     color: inherit;
@@ -112,8 +112,13 @@ style: |
     - Settings > Actions > General に移動し Actions permissions を「Allow all actions and reusable workflows」に設定します。
     - 既存の .github/workflows-disable を正しくリネームして .github/workflows にします。
 
-![h:250 left](../images/set-actions-permissions.png)
-![h:250 right](../images/modify-to-enable.png)
+<!-- _class: columns -->
+<div class="column">
+  ![h:250](../images/set-actions-permissions.png)
+</div>
+<div class="column">
+  ![h:250](../images/modify-to-enable.png)
+</div>
 
 ---
 
