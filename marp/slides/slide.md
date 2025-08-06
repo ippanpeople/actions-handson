@@ -23,13 +23,15 @@ style: |
   }
 
   .label {
-  background: #7799dd;
-  color: #fff;
-  border-radius: 4px;
-  padding: 2px 8px;
-  font-size: 80%;
-}
+    background: #7799dd;
+    color: #fff;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 80%;
+  }
+
 ---
+
 <!-- _class: pink lead -->
 
 # 2025年　夏季インターンシップ
@@ -93,9 +95,9 @@ style: |
 
 ---
 
-## GitHub Actions の有効化方法
+## GitHub Actions の有効化方法 　<span class="label">ハンズオン</span>
 
-1. **ワークフローが無効化されている状態を確認**　<span class="label">ハンズオン</span>
+1. **ワークフローが無効化されている状態を確認**
    - `フォーク`直後や新規リポジトリでは、GitHub Actions ワークフローが無効化されている場合がある
 ![h:450 center](../images/workflow-disable.png)
 
@@ -111,9 +113,9 @@ style: |
 
 ---
 
-## GitHub Actions の有効化方法
+## GitHub Actions の有効化方法 　<span class="label">ハンズオン</span>
 
-3. **ワークフローを有効化する方法** <span class="label">ハンズオン</span>
+3. **ワークフローを有効化する方法**
     - `Settings > Actions > General` に移動し Actions permissions を`Allow all actions and reusable workflows` に設定
     - 既存の `.github/workflows-disable` を正しくリネームして `.github/workflows` にします。
 
@@ -139,9 +141,9 @@ GitHub Actions では、外部サービスへの**認証情報や個人情報**�
 これから今回のハンズオンに使用するシークレットと変数を設定していきます。
 
 ---
-## GitHub Actions のシークレットと変数の設定方法　
+## GitHub Actions のシークレットと変数の設定方法　　<span class="label">ハンズオン</span>
 
-1. **シークレットの設定**　<span class="label">ハンズオン</span>
+1. **シークレットの設定**
 
 | Name              | Value                        |
 |-------------------|-----------------------------|
@@ -154,9 +156,9 @@ GitHub Actions では、外部サービスへの**認証情報や個人情報**�
 
 ---
 
-## GitHub Actions のシークレットと変数の設定方法
+## GitHub Actions のシークレットと変数の設定方法 <span class="label">ハンズオン</span>
 
-2. **変数の設定** <span class="label">ハンズオン</span>
+2. **変数の設定**
 
 | Name         | Value                        |
 |--------------|-----------------------------|
@@ -179,8 +181,7 @@ GitHub Actions では、外部サービスへの**認証情報や個人情報**�
 
 ---
 
-## GitHub Actions ワークフローの実行方法
-<span class="label">ハンズオン</span>
+## GitHub Actions ワークフローの実行方法 <span class="label">ハンズオン</span>
 
 1. **ワークフローの選択**: リポジトリの `Actions` タブに移動し、対象の`ワークフロー`を選択
 2. **ワークフローの実行**: `Run workflow`ボタンをクリック
@@ -250,8 +251,7 @@ Composite Actions は、複数のシェルステップを組み合わせて作�
 
 ---
 
-## sacloud_apprun_actions の使い方
-<span class="label">ハンズオン</span>
+## sacloud_apprun_actions の使い方 <span class="label">ハンズオン</span>
 
 3. **Secrets と Variables の設定**: リポジトリの設定で必要な GitHub Actions シークレットと変数を作成します。
 
@@ -268,8 +268,7 @@ Composite Actions は、複数のシェルステップを組み合わせて作�
 
 ---
 
-## sacloud_apprun_actions の使い方　　
-<span class="label">ハンズオン</span>
+## sacloud_apprun_actions の使い方　　<span class="label">ハンズオン</span>
 
 3. **ワークフローの実行**: ワークフローを手動でトリガーするか、特定のイベント（例: push, pull request）で自動実行
 
