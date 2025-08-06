@@ -140,8 +140,10 @@ GitHub Actions では、外部サービスへの認証情報や個人情報な�
    ````
    SLACK_WEBHOOK_URL
    ````
-![h:250 left](../images/new-secret.png)
-![h:250 right](../images/set-secret.png)
+<div class="side-by-side">
+  <img src="../images/new-secret.png" alt="new-secret">
+  <img src="../images/set-secret.png" alt="set-secret">
+</div>
 
 ---
 
@@ -156,15 +158,19 @@ GitHub Actions では、外部サービスへの認証情報や個人情報な�
    ````
    REPOSITORY
    ````
-![h:250 left](../images/new-variable.png)
-![h:250 right](../images/set-variable.png)
+<div class="side-by-side">
+  <img src="../images/new-variable.png" alt="new-variable">
+  <img src="../images/set-variable.png" alt="set-variable">
+</div>
 
 ---
 
 ## GitHub Actions のシークレットと変数の設定方法
 3. **設定後の確認**: 設定が正しく反映されているか確認します。
-![h:250 left](../images/varify-secret.png)
-![h:250 right](../images/varify-variables.png)
+<div class="side-by-side">
+  <img src="../images/varify-secret.png" alt="varify-secret">
+  <img src="../images/varify-variables.png" alt="varify-variables">
+</div>
 
 ---
 
