@@ -95,3 +95,20 @@ img[alt~='lower-right'] {
   right:70px;
   position: absolute;
 }
+
+img[alt~="left"], img[alt~="right"] {
+  display: inline-block;
+  width: 48%;
+}
+img[alt~="left"] {
+  float: left;
+  margin-right: 4%;
+}
+img[alt~="right"] {
+  float: right;
+}
+section::after {
+  content: "";
+  display: block;
+  clear: both;
+}
