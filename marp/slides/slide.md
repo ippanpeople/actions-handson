@@ -69,7 +69,6 @@ https://github.com/ippanpeople/actions-handson
   - `01_fork_and_setup/README.md`
   - `02_composite_actions/README.md`
   - `03_sacloud_apprun_actions/README.md`
-- Github Actions を今回の開発にで活用できれば嬉しい
 
 ---
 
@@ -142,7 +141,7 @@ https://github.com/ippanpeople/actions-handson
 
 ---
 
-## Workflow の有効化方法
+## Workflow の有効化
 
 1. **ワークフローの初期状態を確認**
    - フォーク直後や新規リポジトリでは、GitHub Actions ワークフローが無効化されている場合がある
@@ -150,7 +149,7 @@ https://github.com/ippanpeople/actions-handson
 
 ---
 
-## Workflow の有効化方法
+## Workflow の有効化
 
 2. **ワークフローを有効化する必須要件**
     - リポジトリの設定で Actions のパーミッションが適切に設定
@@ -160,7 +159,7 @@ https://github.com/ippanpeople/actions-handson
 
 ---
 
-## Workflow の有効化方法 　<span class="label">ハンズオン</span>
+## Workflow の有効化 　<span class="label">ハンズオン</span>
 
 3. **ワークフローを有効化しよう**
     - `Settings > Actions > General` に移動し Actions permissions を`Allow all actions and reusable workflows` に設定
@@ -173,7 +172,7 @@ https://github.com/ippanpeople/actions-handson
 
 ---
 
-## Workflow の有効化方法
+## Workflow の有効化
 
 4. **有効化後の状態を確認**
    - 有効化が完了すると、ワークフローが実行可能な状態になる
@@ -182,13 +181,13 @@ https://github.com/ippanpeople/actions-handson
 
 ---
 
-## GitHub Actions のシークレットと変数の設定方法
+## GitHub Actions のシークレットと変数の設定
 
 GitHub Actions では、外部サービスへの**認証情報や個人情報**などを安全に管理するために `シークレット（Secrets）` と `変数（Variables）` を利用します。シークレットは主にパスワードや API キーなどの機密情報を、変数はワークフロー内で再利用したい値を格納します。これらはリポジトリの `Settings > Secrets and variables` から設定できます。
 これから今回のハンズオンに使用するシークレットと変数を設定していきます。
 
 ---
-## GitHub Actions のシークレットと変数の設定方法　　<span class="label">ハンズオン</span>
+## GitHub Actions のシークレットと変数の設定　<span class="label">ハンズオン</span>
 
 1. **シークレットの設定**
 
@@ -203,7 +202,7 @@ GitHub Actions では、外部サービスへの**認証情報や個人情報**�
 
 ---
 
-## GitHub Actions のシークレットと変数の設定方法 <span class="label">ハンズオン</span>
+## GitHub Actions のシークレットと変数の設定 <span class="label">ハンズオン</span>
 
 2. **変数の設定**
 
@@ -220,7 +219,7 @@ GitHub Actions では、外部サービスへの**認証情報や個人情報**�
 
 ---
 
-## GitHub Actions のシークレットと変数の設定方法
+## GitHub Actions のシークレットと変数の設定
 3. **設定後の確認**: 設定が正しく反映されているか確認
 <div class="side-by-side">
   <img src="../images/varify-secret.png" alt="varify-secret">
@@ -229,7 +228,7 @@ GitHub Actions では、外部サービスへの**認証情報や個人情報**�
 
 ---
 
-## GitHub Actions ワークフローの実行方法 <span class="label">ハンズオン</span>
+## GitHub Actions ワークフローの実行 <span class="label">ハンズオン</span>
 
 1. **ワークフローの選択**: リポジトリの `Actions` タブに移動し、対象の`ワークフロー`を選択
 2. **ワークフローの実行**: `Run workflow`ボタンをクリック
