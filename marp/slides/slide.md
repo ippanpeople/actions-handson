@@ -133,7 +133,7 @@ https://github.com/ippanpeople/actions-handson
 ## You Need a Workflow
 
 `01_fork_and_setup.yml`を見てみよう:
-- 用途：ハンズオンの進捗を確認するため、書くハンズオンが終わったたびに、Slack に通知する
+- 用途：ハンズオンの進捗を確認するため、各ハンズオンが終わったたびに、Slack に通知し、進捗を報告用スレッドから確認できるように
 - トリガー：手動実行
 - 実行すること
   - json payloadを作成
@@ -142,27 +142,27 @@ https://github.com/ippanpeople/actions-handson
 
 ---
 
-## GitHub Actions の有効化方法
+## Workflow の有効化方法
 
-1. **ワークフローが無効化されている状態を確認**
+1. **ワークフローの初期状態を確認**
    - フォーク直後や新規リポジトリでは、GitHub Actions ワークフローが無効化されている場合がある
-![h:450 center](../images/workflow-disable.png)
+![h:400 center](../images/workflow-disable.png)
 
 ---
 
-## GitHub Actions の有効化方法
+## Workflow の有効化方法
 
-2. **なぜワークフローが無効化されているのか確認**
+2. **ワークフローを有効化する必須要件**
     - リポジトリの設定で Actions のパーミッションが適切に設定
     - `.github/workflows` ディレクトリ内にワークフロー定義ファイルが存在
 
-![h:450 center](../images/why-workflow-disable.png)
+![h:400 center](../images/why-workflow-disable.png)
 
 ---
 
-## GitHub Actions の有効化方法 　<span class="label">ハンズオン</span>
+## Workflow の有効化方法 　<span class="label">ハンズオン</span>
 
-3. **ワークフローを有効化する方法**
+3. **ワークフローを有効化しよう**
     - `Settings > Actions > General` に移動し Actions permissions を`Allow all actions and reusable workflows` に設定
     - 既存の `.github/workflows-disable` を正しくリネームして `.github/workflows` にする
 
@@ -173,12 +173,12 @@ https://github.com/ippanpeople/actions-handson
 
 ---
 
-## GitHub Actions の有効化方法
+## Workflow の有効化方法
 
 4. **有効化後の状態を確認**
    - 有効化が完了すると、ワークフローが実行可能な状態になる
 
-![h:480 center](../images/workflow-enabled.png)
+![h:450 center](../images/workflow-enabled.png)
 
 ---
 
@@ -235,7 +235,7 @@ GitHub Actions では、外部サービスへの**認証情報や個人情報**�
 2. **ワークフローの実行**: `Run workflow`ボタンをクリック
 3. **実行の確認**: ワークフローが正常に実行されると、Slack チャンネルにメッセージが送信される。これにより、GitHub Actions のセットアップが正しく行われたことを確認できる
 
-![h:450 center](../images/run-workflow.png)
+![h:400 center](../images/run-workflow.png)
 
 ---
 
@@ -270,7 +270,7 @@ Composite Actions は、複数のシェルステップを組み合わせて作�
 ---
 
 ## sacloud_apprun_actions とは？
-`sacloud_apprun_actions` は、Go アプリケーションをさくらの AppRun サービスにデプロイするときのワークフローを簡潔にするための Composite Actionsです。**アプリケーションのビルド、コンテナレジストリへのプッシュ、AppRun へのデプロイを自動化します**。また、**データ永続化のためのオブジェクトストレージバケットの作成**機能も含まれており、アプリケーションの再起動や再デプロイ後も**データの永続化**ができます。
+`sacloud_apprun_actions` は、Go アプリケーションをさくらの AppRun サービスにデプロイするときのワークフローを簡潔にするための Composite Actionsです。**アプリケーションのビルド、コンテナレジストリへのプッシュ、AppRun へのデプロイを自動化します**。また、**データ永続化のため、登録されたオブジェクトストレージのバケットに　SQLite　レプリカの作成**機能も含まれており、アプリケーションの再起動や再デプロイ後も**データの永続化**ができます。
 
 ---
 
@@ -288,7 +288,6 @@ Composite Actions は、複数のシェルステップを組み合わせて作�
 
 ````yaml
       - name: Goアプリをデプロイ
-        id: deploy
         uses: ippanpeople/sacloud-apprun-action@v0.0.4
         with:
           use-repository-dockerfile: false
@@ -311,7 +310,7 @@ Composite Actions は、複数のシェルステップを組み合わせて作�
 
 ## sacloud_apprun_actions の使い方 <span class="label">ハンズオン</span>
 
-3. **Secrets と Variables の設定**: リポジトリの設定で必要な GitHub Actions シークレットと変数を登録しよう
+3. **Secrets の設定**: リポジトリの設定で必要な GitHub Actions シークレットを登録しよう
 
 | Name                | Value                        |
 |---------------------|-----------------------------|
@@ -356,10 +355,14 @@ AppRun は`ステートレス`なため、デプロイのたびにアプリケ�
 ## データ永続化の実践方法
 
 **⚠️ 注意:**
-SQLite と Litestream を利用する際は、システム設計の妥当性に注意してください。SQLite は小規模用途に適していますが、高負荷や大量データではパフォーマンス上の制約があります。特に、**TPS (Transactions Per Second)** や、**QPS (Queries Per Second)** などの観点で制約が発生しやすいです。Litestream も設定や運用方法によってはデータの安全性・一貫性 (**Consistency**) に注意が必要です。システム要件に応じて、適切なデータベースやストレージ方式の選定を検討してください。
+SQLite + Litestream を利用する際は、システム設計の妥当性に注意してください。SQLite は小規模用途に適していますが、高負荷や大量データではパフォーマンス上の制約があります。特に、**TPS (Transactions Per Second)** や、**QPS (Queries Per Second)** などの観点で制約が発生しやすいです。なので、利用する際にデータの安全性・一貫性 (**Consistency**) に注意が必要です。システム要件に応じて、適切なデータベースやストレージ方式の選定を検討してください。
 
 ---
 
 <!-- _class: pink lead -->
 
 # 以上で GitHub Actions 説明は終了です
+## ぜひインターンで活用してください
+### 質問とある際にお気軽に聞いてください
+
+---
