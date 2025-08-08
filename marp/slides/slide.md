@@ -43,6 +43,7 @@ style: |
 
 ## 目次
 
+- 進み方説明
 - GitHub Actions 入門
 - GitHub Actions の初期設定
 - Composite Actions の運用
@@ -52,7 +53,30 @@ style: |
 
 <!-- _class: pink lead -->
 
+# 進み方説明
+
+---
+
+## 進み方説明
+
+- まずは、下記のハンズオン用のリポジトリをフォークしよう
+````bash
+https://github.com/ippanpeople/actions-handson
+````
+- このセクションは、フォークしたリポジトリの`marp/slides/slide.pdf`で説明
+- 具体的な手順は下記のREADMEに記載されているので、それぞれのREADMEを参照しながら進めていこう
+  - `00_introduction_Github_Actions/README.md`
+  - `01_fork_and_setup/README.md`
+  - `02_composite_actions/README.md`
+  - `03_sacloud_apprun_actions/README.md`
+- Github Actions を今回の開発にで活用できれば嬉しい
+
+---
+
+<!-- _class: pink lead -->
+
 # GitHub Actions 入門
+## 00_introduction_Github_Actions
 
 ---
 
@@ -92,13 +116,36 @@ style: |
 <!-- _class: pink lead -->
 
 # GitHub Actions の初期設定
+## 01_fork_and_setup
 
 ---
 
-## GitHub Actions の有効化方法 　<span class="label">ハンズオン</span>
+## You Need a Workflow
+
+- Github Actions を利用するため、自動化プロセスであるワークフローを定義する必要がある
+- ワークフローは、基本的に先程紹介した基本コンポーネントを組み合わせて作成される
+- ワークフロー内に定義されたタスクは、基本的に下記のような形で実行内容を記述
+  - **run**: シェルコマンドを実行する　<- 01_fork_and_setup.yml
+  - **uses**: 他のアクションを呼び出す <- 02_composite_actions.yml、03_sacloud_apprun_actions.yml
+
+---
+
+## You Need a Workflow
+
+`01_fork_and_setup.yml`を見てみよう:
+- 用途：ハンズオンの進捗を確認するため、書くハンズオンが終わったたびに、Slack に通知する
+- トリガー：手動実行
+- 実行すること
+  - json payloadを作成
+  - curl で payload を Slack Webhook に送信
+  - エラーハンドリング
+
+---
+
+## GitHub Actions の有効化方法
 
 1. **ワークフローが無効化されている状態を確認**
-   - `フォーク`直後や新規リポジトリでは、GitHub Actions ワークフローが無効化されている場合がある
+   - フォーク直後や新規リポジトリでは、GitHub Actions ワークフローが無効化されている場合がある
 ![h:450 center](../images/workflow-disable.png)
 
 ---
@@ -117,7 +164,7 @@ style: |
 
 3. **ワークフローを有効化する方法**
     - `Settings > Actions > General` に移動し Actions permissions を`Allow all actions and reusable workflows` に設定
-    - 既存の `.github/workflows-disable` を正しくリネームして `.github/workflows` にします。
+    - 既存の `.github/workflows-disable` を正しくリネームして `.github/workflows` にする
 
 <div class="side-by-side">
   <img src="../images/set-actions-permissions.png" alt="set-actions-permissions">
@@ -137,7 +184,7 @@ style: |
 
 ## GitHub Actions のシークレットと変数の設定方法
 
-GitHub Actions では、外部サービスへの**認証情報や個人情報**などを安全に管理するために `シークレット（Secrets）` と `変数（Variables）` を利用します。シークレットは主にパスワードや API キーなどの機密情報を、変数はワークフロー内で再利用したい値（例：自分の名前やリポジトリリンクなど）を格納します。これらはリポジトリの `Settings > Secrets and variables` から設定できます。
+GitHub Actions では、外部サービスへの**認証情報や個人情報**などを安全に管理するために `シークレット（Secrets）` と `変数（Variables）` を利用します。シークレットは主にパスワードや API キーなどの機密情報を、変数はワークフロー内で再利用したい値を格納します。これらはリポジトリの `Settings > Secrets and variables` から設定できます。
 これから今回のハンズオンに使用するシークレットと変数を設定していきます。
 
 ---
@@ -164,6 +211,7 @@ GitHub Actions では、外部サービスへの**認証情報や個人情報**�
 |--------------|-----------------------------|
 | AUTHOR_NAME  | 自分の名前                   |
 | REPOSITORY   | 自分の GitHub リポジトリリンク |
+| MESSAGE     | メッセージ内容（例: "Hello, World!"） |
 
 <div class="side-by-side">
   <img src="../images/new-variable.png" alt="new-variable">
@@ -193,21 +241,31 @@ GitHub Actions では、外部サービスへの**認証情報や個人情報**�
 
 <!-- _class: pink lead -->
 # Composite Actions の運用
-
+## 02_composite_actions
 ---
 
 ## Composite Actions とは？
+`01_fork_and_setup` では、`run`でコマンドを実行したが、より複雑な処理を定義したい場合、ワークフローはスパゲッティ化してしまうことがあります。
 Composite Actions は、複数のシェルステップを組み合わせて作成されるカスタムアクションです。YAML で記述され、GitHub Actions のワークフロー内で再利用可能なロジックを提供します。これにより、**複雑な処理を簡潔にまとめ、再利用性を高めることができます**。
 
 ---
 
 ## 前のステップとの比較
+
+`uses` で公開されている Composite Actions を呼び出し、with でパラメータを指定することで、複雑な処理を簡潔にまとめることができる
 ![h:450 center](../images/compare.png)
+
+---
+
+## 実行してみよう　<span class="label">ハンズオン</span>
+
+`02_composite_actions.yml` は `01_fork_and_setup.yml` の内容を Composite Actions を使って書き直したものだけなので、各自実行して、動作を確認してください。
 
 ---
 
 <!-- _class: pink lead -->
 # sacloud_apprun_actions を使った AppRun デプロイ
+## 03_sacloud_apprun_actions
 
 ---
 
@@ -253,7 +311,7 @@ Composite Actions は、複数のシェルステップを組み合わせて作�
 
 ## sacloud_apprun_actions の使い方 <span class="label">ハンズオン</span>
 
-3. **Secrets と Variables の設定**: リポジトリの設定で必要な GitHub Actions シークレットと変数を作成します。
+3. **Secrets と Variables の設定**: リポジトリの設定で必要な GitHub Actions シークレットと変数を登録しよう
 
 | Name                | Value                        |
 |---------------------|-----------------------------|
@@ -270,14 +328,29 @@ Composite Actions は、複数のシェルステップを組み合わせて作�
 
 ## sacloud_apprun_actions の使い方　　<span class="label">ハンズオン</span>
 
-3. **ワークフローの実行**: ワークフローを手動でトリガーするか、特定のイベント（例: push, pull request）で自動実行
+3. **ワークフローの実行**: ワークフローを手動で実行してみよう
 
 ---
 
 ## データ永続化の実践方法
 
 AppRun は`ステートレス`なため、デプロイのたびにアプリケーションが再起動されます。sacloud_apprun_actions はデータ永続化の課題を解決するため、`SQLite と Litestream` を利用し、アプリ再起動後もデータが保持されるようにします。
-
+````bash
++----------------+      
+|   Container    |       
+|  +----------+  |      
+|  | Web  App |  |      
+|  +----------+  |      
+|                |      
+|  +----------+  |    
+|  |  SQLite  |  |       
+|  +----------+  |        +---------------------+
+|                |        |   Object Storage    |
+|  +----------+  | Backup |  +--------------+   |
+|  |Litestream|  | <----> |  |    Bucket    |   |
+|  +----------+  |  Sync  |  +--------------+   |
++----------------+        +---------------------+
+````
 ---
 
 ## データ永続化の実践方法

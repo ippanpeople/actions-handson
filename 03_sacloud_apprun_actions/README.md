@@ -29,7 +29,7 @@
           container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
           port: '8080'
           # SQLite + Litestream を使う場合は以下も指定
-          object-storage-bucket: w-rin-test
+          object-storage-bucket: ${{ secrets.STORAGE_BUCKET_NAME }}
           object-storage-access-key: ${{ secrets.STORAGE_ACCESS_KEY }}
           object-storage-secret-key: ${{ secrets.STORAGE_SECRET_KEY }}
           sqlite-db-path: ./data/app.db
@@ -96,8 +96,9 @@ AppRun はステートレスなため、デプロイのたびにアプリケー�
     - [ ] Actions Secret `REGISTRY_PASSWORD` にコンテナレジストリのパスワードを登録
     - [ ] Actions Secret `SAKURA_API_KEY` にさくらの API キーを登録
     - [ ] Actions Secret `SAKURA_API_SECRET` にさくらの API シークレットを登録
-    - [ ] Actions Variable `STORAGE_ACCESS_KEY` にオブジェクトストレージのアクセスキーを登録
-    - [ ] Actions Variable `STORAGE_SECRET_KEY` にオブジェクトストレージのシークレットキーを登録
+    - [ ] Actions Secret `STORAGE_BUCKET_NAME` にオブジェクトストレージのバケット名を登録
+    - [ ] Actions Secret `STORAGE_ACCESS_KEY` にオブジェクトストレージのアクセスキーを登録
+    - [ ] Actions Secret `STORAGE_SECRET_KEY` にオブジェクトストレージのシークレットキーを登録
 - [ ] ワークフローをテストし、AppRun がデプロイされ Slack に成功メッセージが送信されることを確認
     - [ ] リポジトリの Actions タブに移動
     - [ ] 対象ワークフローを選択し「Run workflow」をクリック

@@ -22,7 +22,7 @@ jobs:
                 "author_name": ":github_white: ${{ vars.AUTHOR_NAME }}",
                 "title": "Github Repository",
                 "title_link": "${{ vars.REPOSITORY }}",
-                "text": ":speech_balloon: (適宜変更してください)",
+                "text": ":speech_balloon: ${{ vars.MESSAGE }}",
                 "footer": "インターン_ハンズオン BOT",
                 "footer_icon": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.ap-northeast-1.amazonaws.com%2F0%2F1022001%2F30818b78-45d7-bac7-12b9-8433c2ef3011.png?ixlib=rb-4.0.0&auto=format&gif-q=60&q=75&s=035dfbe9921b278308e895b5e03dab1a",
                 "ts": $TS

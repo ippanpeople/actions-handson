@@ -15,4 +15,4 @@ jobs:
         pretext: "STEP2: composite actions ✅ <!channel>"
         author_name: ":github_white: ${{ vars.AUTHOR_NAME }}"
         repository: "${{ vars.REPOSITORY }}"
-        message: ":speech_balloon: (適宜変更してください)"
+        message: ":speech_balloon: ${{ vars.MESSAGE }}"
