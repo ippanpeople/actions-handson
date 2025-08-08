@@ -155,7 +155,7 @@ https://github.com/ippanpeople/actions-handson
     - リポジトリの設定で Actions のパーミッションが適切に設定
     - `.github/workflows` ディレクトリ内にワークフロー定義ファイルが存在
 
-![h:400 center](../images/why-workflow-disable.png)
+![h:380 center](../images/why-workflow-disable.png)
 
 ---
 
@@ -177,7 +177,7 @@ https://github.com/ippanpeople/actions-handson
 4. **有効化後の状態を確認**
    - 有効化が完了すると、ワークフローが実行可能な状態になる
 
-![h:450 center](../images/workflow-enabled.png)
+![h:400 center](../images/workflow-enabled.png)
 
 ---
 
@@ -230,11 +230,11 @@ GitHub Actions では、外部サービスへの**認証情報や個人情報**�
 
 ## GitHub Actions ワークフローの実行 <span class="label">ハンズオン</span>
 
-1. **ワークフローの選択**: リポジトリの `Actions` タブに移動し、対象の`ワークフロー`を選択
+1. **ワークフローの選択**: リポジトリの `Actions` タブに移動し、`01 Fork And Setup`の`ワークフロー`を選択
 2. **ワークフローの実行**: `Run workflow`ボタンをクリック
 3. **実行の確認**: ワークフローが正常に実行されると、Slack チャンネルにメッセージが送信される。これにより、GitHub Actions のセットアップが正しく行われたことを確認できる
 
-![h:400 center](../images/run-workflow.png)
+![h:380 center](../images/run-workflow.png)
 
 ---
 
@@ -259,6 +259,9 @@ Composite Actions は、複数のシェルステップを組み合わせて作�
 ## 実行してみよう　<span class="label">ハンズオン</span>
 
 `02_composite_actions.yml` は `01_fork_and_setup.yml` の内容を Composite Actions を使って書き直したものだけなので、各自実行して、動作を確認してください。
+1. **ワークフローの選択**: リポジトリの `Actions` タブに移動し、`Composite Actions`の`ワークフロー`を選択
+2. **ワークフローの実行**: `Run workflow`ボタンをクリック
+3. **実行の確認**: ワークフローが正常に実行されると、Slack チャンネルにメッセージが送信される。これにより、GitHub Actions のセットアップが正しく行われたことを確認できる
 
 ---
 
@@ -327,6 +330,10 @@ Composite Actions は、複数のシェルステップを組み合わせて作�
 ## sacloud_apprun_actions の使い方　　<span class="label">ハンズオン</span>
 
 3. **ワークフローの実行**: ワークフローを手動で実行してみよう
+  a. **ワークフローの選択**: リポジトリの `Actions` タブに移動し、`03 Sacloud Apprun Actions`の`ワークフロー`を選択
+  b. **ワークフローの実行**: `Run workflow`ボタンをクリック
+  c. **実行の確認**: ワークフローが正常に実行されると、Slack チャンネルにメッセージが送信される。これにより、GitHub Actions のセットアップが正しく行われたことを確認できる
+
 
 ---
 
@@ -354,7 +361,7 @@ AppRun は`ステートレス`なため、デプロイのたびにアプリケ�
 ## データ永続化の実践方法
 
 **⚠️ 注意:**
-SQLite + Litestream を利用する際は、システム設計の妥当性に注意してください。SQLite は小規模用途に適していますが、高負荷や大量データではパフォーマンス上の制約があります。特に、**TPS (Transactions Per Second)** や、**QPS (Queries Per Second)** などの観点で制約が発生しやすいです。なので、利用する際にデータの安全性・一貫性 (**Consistency**) に注意が必要です。システム要件に応じて、適切なデータベースやストレージ方式の選定を検討してください。
+SQLite + Litestream を利用する際は、システム設計の妥当性に注意してください。SQLite は小規模用途に適していますが、高負荷や大量データではパフォーマンス上の制約があります。特に、**TPS (Transactions Per Second)** や、**QPS (Queries Per Second)** などの観点で制約が発生しやすいです。なので、データの安全性・一貫性 (**Consistency**) に注意が必要です。システム要件に応じて、適切なデータベースやストレージ方式の選定を検討してください。
 
 ---
 
@@ -364,4 +371,3 @@ SQLite + Litestream を利用する際は、システム設計の妥当性に注
 ## ぜひインターンで活用してください
 ### 質問とある際にお気軽に聞いてください
 
----

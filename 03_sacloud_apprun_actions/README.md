@@ -72,7 +72,7 @@ STORAGE_ACCESS_KEY
 ````
 STORAGE_SECRET_KEY
 ````
-3. **ワークフローの実行**: ワークフローを手動でトリガーするか、特定のイベント（例: push, pull request）で自動実行します。
+3. **ワークフローの実行**: `03 Sacloud Apprun Actions`を手動で実行します。
 
 ## データ永続化の実践方法
 AppRun はステートレスなため、デプロイのたびにアプリケーションが再起動されます。データ永続化のため、SQLite と Litestream を利用し、アプリ再起動後もデータが保持されるようにします。
@@ -99,7 +99,7 @@ AppRun はステートレスなため、デプロイのたびにアプリケー�
     - [ ] Actions Secret `STORAGE_BUCKET_NAME` にオブジェクトストレージのバケット名を登録
     - [ ] Actions Secret `STORAGE_ACCESS_KEY` にオブジェクトストレージのアクセスキーを登録
     - [ ] Actions Secret `STORAGE_SECRET_KEY` にオブジェクトストレージのシークレットキーを登録
-- [ ] ワークフローをテストし、AppRun がデプロイされ Slack に成功メッセージが送信されることを確認
+- [ ] 03 Sacloud Apprun Actionsを実行し、AppRun がデプロイされ Slack に成功メッセージが送信されることを確認
     - [ ] リポジトリの Actions タブに移動
     - [ ] 対象ワークフローを選択し「Run workflow」をクリック
     - [ ] Slack チャンネルにメッセージが表示されることを確認

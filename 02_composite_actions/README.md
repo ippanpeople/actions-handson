@@ -29,7 +29,7 @@ Composite Actions は、以下の要素で構成されます。
     - [ ] 変更をリポジトリにプッシュ
 - [ ] ワークフローが Slack へメッセージを送信できるかテスト
     - [ ] リポジトリの Actions タブに移動
-    - [ ] 対象ワークフローを選択し「Run workflow」をクリック
+    - [ ] `02 Composite Actions`を選択し「Run workflow」をクリック
     - [ ] Slack チャンネルにメッセージが表示されることを確認
 
 

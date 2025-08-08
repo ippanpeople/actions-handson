@@ -43,6 +43,11 @@ GitHub Actions では、外部サービスへの認証情報や個人情報な�
    ````
    REPOSITORY
    ````
+   - 例: Slack へ送信するメッセージ
+   ````
+   MESSAGE
+   ````
+
 ![GitHub Actions Variables 設定画面](new-variable.png)
 ![Variables の具体的な設定例](set-variable.png)
 3. **設定後の確認**: 設定が正しく反映されているか確認します。
@@ -65,12 +70,11 @@ GitHub Actions では、外部サービスへの認証情報や個人情報な�
     - [ ] Actions Secret `SLACK_WEBHOOK_URL` を作成し、Slack の Incoming Webhook URL を登録
     - [ ] Actions Variable `AUTHOR_NAME` を作成し、自分の名前を登録
     - [ ] Actions Variable `REPOSITORY` を作成し、自分の GitHub リポジトリリンクを登録
+    - [ ] Actions Variable `MESSAGE` を作成し、Slack へ送信するメッセージを登録
 - [ ] ワークフローを設定し、Slack へメッセージを送信できるようにする
-    - [ ] ワークフロー内の "text" を自分のメッセージに更新
-    - [ ] 変更をリポジトリにプッシュ
 - [ ] ワークフローが Slack へメッセージを送信できるかテスト
     - [ ] リポジトリの Actions タブに移動
-    - [ ] 対象ワークフローを選択し「Run workflow」をクリック
+    - [ ] `01 Fork And Setup`を選択し「Run workflow」をクリック
     - [ ] Slack チャンネルにメッセージが表示されることを確認
 
 
