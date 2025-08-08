@@ -69,7 +69,7 @@ https://github.com/ippanpeople/actions-handson
   - `01_fork_and_setup/README.md`
   - `02_composite_actions/README.md`
   - `03_sacloud_apprun_actions/README.md`
-
+- **目的**: GitHub Actions の基礎を理解し、Actions を使ったアプリケーションのデプロイフローを体験すること
 ---
 
 <!-- _class: pink lead -->
