@@ -41,7 +41,7 @@ func main() {
         button { padding: 8px 16px; border: none; background: #215EBF; color: #fff; border-radius: 4px; cursor: pointer; }
         button:hover { background: #174a8c; }
         </style></head><body><div class='container'>`)
-        fmt.Fprintln(w, `<h1>ハンズオン掲示板 v1.0.0</h1>`)
+        fmt.Fprintln(w, `<h1>ハンズオン掲示板 v2.0.0</h1>`)
         fmt.Fprintln(w, `<form method='POST' action='/add'><input type='text' name='msg' placeholder='メッセージを入力'><button type='submit'>投稿</button></form>`)
         fmt.Fprintln(w, `<ul>`)
         rows, err := db.Query("SELECT id, content FROM messages ORDER BY id DESC")
